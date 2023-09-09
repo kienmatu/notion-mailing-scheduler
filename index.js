@@ -28,7 +28,7 @@ const main = async function () {
     from: userEmail,
     to: destinationEmail,
     subject: "[NMS] Scheduled vocabulary review",
-    text: emailContent,
+    html: emailContent,
   };
 
   mailTransporter.sendMail(mailDetails, function (err, data) {

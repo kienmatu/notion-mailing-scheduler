@@ -1,0 +1,17 @@
+name: Send vocabularies manually
+on:
+  workflow_dispatch:
+
+jobs:
+  stale:
+    runs-on: node:lts-hydrogen
+    steps:
+      - uses: actions/checkout@v2
+      - name: sending email
+        env:
+          SENDING_EMAIL: ${{ secrets.SENDING_EMAIL }}
+          SENDING_PASSWORD: ${{ secrets.SENDING_PASSWORD }}
+          DESTINATION_EMAIL: ${{ secrets.DESTINATION_EMAIL }}
+          NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: node index.js

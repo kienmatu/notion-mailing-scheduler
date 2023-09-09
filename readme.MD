@@ -11,6 +11,8 @@ This project help us to schedule sending an email every week from a notion datab
    (((((toNumber(substring(replaceAll(id(), "[a-z]", ""), 0, 8)) * 100011979) + 500067713) % 900066731) * (((timestamp(now()) * 800067089) + 800068411) % 800053967)) + 900067309) % 900066571
    ```
    - See my notion template: [English template](https://devgiangho.notion.site/English-template-6674b46733b744b8819d039c9df51913?pvs=4)
+   - Looks like:
+     ![](./images/database_demo.png)
 2. Create an integration at [notion integration](https://www.notion.so/my-integrations)
 3. Share the database with an integration.
 4. Prepare email accounts for sending.
@@ -30,6 +32,8 @@ This project help us to schedule sending an email every week from a notion datab
    - `DESTINATION_EMAIL`: Your email that will be received email automatically.
    - `NOTION_DB_ID`: Notion database ID.
    - `NOTION_API_KEY`: Notion API key.
+   - This looks like:
+     ![](./images/secrets.png)
 
 3. Modify the cronjob (optional)
 

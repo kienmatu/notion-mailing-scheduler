@@ -1,16 +1,18 @@
 name: Send vocabularies everyweek (11AM sunday)
 on:
   schedule:
-    - cron: "*/10 * * * *"
-    - cron: "0 10 * * THU"
-    - cron: "0 11 * * 0"
+    - cron: "0 10 * * THU" ## Runs at 10:00, only on Thursday
+    - cron: "30 10 * * SUN" # Runs at 10:30, only on Sunday
   workflow_dispatch:
 
 jobs:
   stale:
-    runs-on: node:lts-hydrogen
+    runs-on: ubuntu:latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - name: sending email
         env:
           SENDING_EMAIL: ${{ secrets.SENDING_EMAIL }}

@@ -60,7 +60,6 @@ const buildEmailContent = function (response) {
 };
 
 const getPlainText = function (property) {
-  console.log(property);
   if (property.type == "rich_text") {
     const rows = property?.rich_text?.map((r) => r.plain_text);
     return rows?.join("");

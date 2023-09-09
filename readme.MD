@@ -7,7 +7,7 @@ This project help us to schedule sending an email every week from a notion datab
 1. A notion database with a random tab
 2. Gmail accounts (sending)
 
-- Disable 2FA, allow low-secure BOT for your sending account
+   - Disable 2FA, allow low-secure BOT for your sending account
 
 3. A github account
 

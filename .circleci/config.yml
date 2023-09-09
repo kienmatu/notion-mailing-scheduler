@@ -35,4 +35,3 @@ workflows:
           filters:
             branches:
               only: /.*/ # Include all branches
-          when: manual

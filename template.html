@@ -109,26 +109,24 @@
       Hi, this is the random vocabularies of the week!
     </div>
     <article class="container p-2">
+      {{#each vocabularies}}
       <div class="card bg-white p-4 rounded shadow">
         <div class="col col-3">
           <div class="flex items-center mt-3">
             <span class="h-3 w-3 mr-3 rounded-full bg-green-500"></span>
-            <span class="font-semibold">Expeditiously</span>
+            <span class="font-semibold">{{name}}</span>
           </div>
           <div class="flex items-center mt-3">
             <span class="h-3 w-3 mr-3 rounded-full bg-blue-500"></span>
-            <span class="font-semibold">/,ekspə'di∫əsli/</span>
+            <span class="font-semibold">{{pronunciation}}</span>
           </div>
         </div>
         <div class="col col-7">
-          <p class="text-gray-600">
-            The companies succeeded in closing the deal expeditiously.
-          </p>
-          <p class="text-gray-600">
-            Một cách nhanh chóng và hiệu quả: Nhanh lẹ
-          </p>
+          <p class="text-gray-600">{{example}}</p>
+          <p class="text-gray-600">{{description}}</p>
         </div>
       </div>
+      {{/each}}
     </article>
   </body>
 </html>

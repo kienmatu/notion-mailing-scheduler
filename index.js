@@ -1,4 +1,6 @@
 const nodemailer = require("nodemailer");
+const { randomFetch, buildEmailContent } = require("./notion.js");
+require("dotenv").config();
 
 const userEmail = process.env.SENDING_EMAIL;
 const password = process.env.SENDING_PASSWORD;
@@ -11,25 +13,33 @@ if (!userEmail || !password || !destinationEmail) {
   process.exit(1);
 }
 
-let mailTransporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: userEmail,
-    pass: password,
-  },
-});
+const main = async function () {
+  let mailTransporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: userEmail,
+      pass: password,
+    },
+  });
 
-let mailDetails = {
-  from: userEmail,
-  to: destinationEmail,
-  subject: "[NMS] Scheduled vocabulary review",
-  text: "Node.js testing mail for GeeksforGeeks",
+  const resp = await randomFetch();
+  const emailContent = buildEmailContent(resp);
+  console.log(emailContent);
+  process.exit(1);
+  let mailDetails = {
+    from: userEmail,
+    to: destinationEmail,
+    subject: "[NMS] Scheduled vocabulary review",
+    text: emailContent,
+  };
+
+  mailTransporter.sendMail(mailDetails, function (err, data) {
+    if (err) {
+      console.error("Can't send email: ", err.message);
+    } else {
+      console.log("Email sent successfully");
+    }
+  });
 };
 
-mailTransporter.sendMail(mailDetails, function (err, data) {
-  if (err) {
-    console.error("Can't send email: ", err.message);
-  } else {
-    console.log("Email sent successfully");
-  }
-});
+main();

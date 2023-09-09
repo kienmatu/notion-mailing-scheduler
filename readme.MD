@@ -17,8 +17,8 @@ This project help us to schedule sending an email every week from a notion datab
 3. Share the database with an integration.
 4. Prepare email accounts for sending.
 
-   - Disable 2FA, allow low-secure BOT.
-   - Recommend to use **a not-important** account.
+   - Enable 2 factor authentication.
+   - Create an application password, use that for credential below.
 
 5. A github account
 
@@ -28,7 +28,7 @@ This project help us to schedule sending an email every week from a notion datab
 2. Add secret to your project (it will be "secret")
 
    - `SENDING_EMAIL`: Sending account.
-   - `SENDING_PASSWORD`: Password of the sending account.
+   - `SENDING_PASSWORD`: Password of the sending account (application password) [See more](https://support.google.com/accounts/answer/185833?hl=en).
    - `DESTINATION_EMAIL`: Your email that will be received email automatically.
    - `NOTION_DB_ID`: Notion database ID.
    - `NOTION_API_KEY`: Notion API key.

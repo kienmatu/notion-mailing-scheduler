@@ -18,6 +18,12 @@ if (!notion || !databaseId) {
 }
 
 const randomFetch = async function () {
+  // wait a period of time to increase the randomizer rate.
+  const randNumber = randomIntFromInterval(100, 10000);
+  delay(randNumber).then(() => {
+    console.log(`Delayed ${randNumber}ms to enhance the randomizer algorithm`);
+  });
+
   const response = await notion.databases.query({
     database_id: databaseId,
     sorts: [
@@ -26,7 +32,7 @@ const randomFetch = async function () {
         direction: "ascending",
       },
     ],
-    page_size: 15,
+    page_size: 50,
   });
   return response;
 };
@@ -53,8 +59,14 @@ const buildEmailContent = function (response) {
     return vocab;
   });
 
+  // just take max 15 randomized records
+  // because notion randomizer is not good enough.
+  const shuffledArray = [...vocabularies];
+  shuffleArray(shuffledArray);
+  const randomizedVocabs = shuffledArray.slice(0, 15);
+
   const hbTemplate = Handlebars.compile(template);
-  const html = hbTemplate({ vocabularies: vocabularies });
+  const html = hbTemplate({ vocabularies: randomizedVocabs });
 
   return html;
 };
@@ -70,4 +82,19 @@ const getPlainText = function (property) {
   }
   return "";
 };
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function delay(time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 module.exports = { randomFetch, buildEmailContent };

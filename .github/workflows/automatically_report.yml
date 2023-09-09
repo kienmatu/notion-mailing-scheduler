@@ -1,4 +1,4 @@
-name: Send vocabularies everyweek (11AM sunday)
+name: Send vocabularies by scheduled times
 on:
   schedule:
     - cron: "0 10 * * THU" ## Runs at 10:00, only on Thursday
@@ -7,7 +7,7 @@ on:
 
 jobs:
   stale:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3

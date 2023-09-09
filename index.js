@@ -24,8 +24,6 @@ const main = async function () {
 
   const resp = await randomFetch();
   const emailContent = buildEmailContent(resp);
-  console.log(emailContent);
-  process.exit(1);
   let mailDetails = {
     from: userEmail,
     to: destinationEmail,

@@ -4,12 +4,21 @@ This project help us to schedule sending an email every week from a notion datab
 
 ## Prerequisites
 
-1. A notion database with a random tab
-2. Gmail accounts (sending)
+1. A notion database to store vocab with fields:
+   - `Name`, `Short description`, `IPA`, `Example`.
+   - And `Rand` is the random number with formula:
+   ```
+   (((((toNumber(substring(replaceAll(id(), "[a-z]", ""), 0, 8)) * 100011979) + 500067713) % 900066731) * (((timestamp(now()) * 800067089) + 800068411) % 800053967)) + 900067309) % 900066571
+   ```
+   - See my notion template: [English template](https://devgiangho.notion.site/English-template-6674b46733b744b8819d039c9df51913?pvs=4)
+2. Create an integration at [notion integration](https://www.notion.so/my-integrations)
+3. Share the database with an integration.
+4. Prepare email accounts for sending.
 
-   - Disable 2FA, allow low-secure BOT for your sending account
+   - Disable 2FA, allow low-secure BOT.
+   - Recommend to use **a not-important** account.
 
-3. A github account
+5. A github account
 
 ## Setup
 
@@ -24,4 +33,6 @@ This project help us to schedule sending an email every week from a notion datab
 
 3. Modify the cronjob (optional)
 
-4. Enjoy and learn!
+   - How to modify the cronjob? See [Crontab.guru](https://crontab.guru/#*_*_*_*_*)
+
+4. Enjoy and ready to learn!

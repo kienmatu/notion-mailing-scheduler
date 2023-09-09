@@ -24,9 +24,10 @@ workflows:
           filters:
             branches:
               ignore: /.*/ # Ignore branch commits
-          schedule:
-            - cron: "0 10 * * THU" ## Runs at 10:00, only on Thursday
-            - cron: "30 10 * * SUN" # Runs at 10:30, only on Sunday
+    triggers:
+      schedule:
+        - cron: "0 10 * * THU" ## Runs at 10:00, only on Thursday
+        - cron: "30 10 * * SUN" # Runs at 10:30, only on Sunday
   manual-workflow:
     jobs:
       - build:

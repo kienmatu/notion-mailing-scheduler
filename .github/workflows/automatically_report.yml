@@ -9,7 +9,7 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -20,4 +20,4 @@ jobs:
           DESTINATION_EMAIL: ${{ secrets.DESTINATION_EMAIL }}
           NOTION_DB_ID: ${{ secrets.NOTION_DB_ID }}
           NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-        run: node index.js
+        run: npm start

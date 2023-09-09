@@ -11,6 +11,8 @@
     "dev": "node index.js"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.13",
+    "handlebars": "^4.7.8",
     "nodemailer": "^6.9.5"
   }
 }

@@ -22,7 +22,7 @@ let mailTransporter = nodemailer.createTransport({
 let mailDetails = {
   from: userEmail,
   to: destinationEmail,
-  subject: "Scheduled vocabulary review",
+  subject: "[NMS] Scheduled vocabulary review",
   text: "Node.js testing mail for GeeksforGeeks",
 };
 

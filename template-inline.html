@@ -12,14 +12,25 @@
       background: white;
     "
   >
-    <div style="text-align: center; margin-top: 2rem; font-size: 1.2rem">
+    <div
+      style="
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+      "
+    >
       Hi, this is the random vocabularies of the week!
+    </div>
+    <div style="margin-top: 2rem; font-size: 1.3rem; font-weight: 600">
+      First, review and try to find the meanings via your memories, and the
+      examples
     </div>
     <article style="margin: 0.5rem 1rem 0.5rem 1rem; display: block">
       {{#each vocabularies}}
       <div
         style="
-          background-color: rgb(255, 255, 255);
+          background-color: #f9f9f9;
           box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
             0 1px 2px 0 rgba(0, 0, 0, 0.06);
           border-radius: 0.25rem;
@@ -27,31 +38,94 @@
           padding-top: 0.5rem;
         "
       >
-        <div style="width: 30%">
+        <div style="margin-bottom: 0.8rem">
           <div style="display: flex; align-items: center; margin-top: 0.7rem">
             <span
               style="
                 border-radius: 9999px;
+                margin-right: 0.2rem;
                 width: 0.75rem;
                 height: 0.75rem;
                 background-color: rgba(16, 185, 129, 1);
               "
             ></span>
-            <span style="font-weight: 600">{{name}}</span>
+            <span style="font-weight: 600; color: #5488c7">{{name}}</span>
           </div>
           <div style="display: flex; align-items: center; margin-top: 0.7rem">
             <span
               style="
                 border-radius: 9999px;
+                margin-right: 0.2rem;
                 width: 0.75rem;
                 height: 0.75rem;
                 background-color: rgb(59, 130, 246);
               "
             ></span>
-            <span style="font-weight: 600">{{pronunciation}}</span>
+            <span style="font-weight: 600; color: #5488c7">
+              {{#if pronunciation}} {{pronunciation}} {{else}} _missing_ {{/if}}
+            </span>
           </div>
         </div>
-        <div style="width: 70%">
+        <div
+          style="
+            margin-top: 0.1rem;
+            border-top: solid rgb(158, 158, 158) 0.01em;
+          "
+        >
+          <p style="color: rgb(45, 49, 54)">{{description}}</p>
+        </div>
+      </div>
+      {{/each}}
+    </article>
+    <div style="margin-top: 2rem; font-size: 1.3rem; font-weight: 600">
+      Now, check the result!
+    </div>
+    <article style="margin: 0.5rem 1rem 0.5rem 1rem; display: block">
+      {{#each vocabularies}}
+      <div
+        style="
+          background-color: #f9f9f9;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+            0 1px 2px 0 rgba(0, 0, 0, 0.06);
+          border-radius: 0.25rem;
+          padding: 1rem;
+          padding-top: 0.5rem;
+        "
+      >
+        <div style="margin-bottom: 0.8rem">
+          <div style="display: flex; align-items: center; margin-top: 0.7rem">
+            <span
+              style="
+                border-radius: 9999px;
+                margin-right: 0.2rem;
+                width: 0.75rem;
+                height: 0.75rem;
+                background-color: rgba(16, 185, 129, 1);
+              "
+            ></span>
+            <span style="font-weight: 600; color: #5488c7">{{name}}</span>
+          </div>
+          <div style="display: flex; align-items: center; margin-top: 0.7rem">
+            <span
+              style="
+                border-radius: 9999px;
+                margin-right: 0.2rem;
+                width: 0.75rem;
+                height: 0.75rem;
+                background-color: rgb(59, 130, 246);
+              "
+            ></span>
+            <span style="font-weight: 600; color: #5488c7">
+              {{#if pronunciation}} {{pronunciation}} {{else}} _missing_ {{/if}}
+            </span>
+          </div>
+        </div>
+        <div
+          style="
+            margin-top: 0.1rem;
+            border-top: solid rgb(158, 158, 158) 0.01em;
+          "
+        >
           <p style="color: rgb(45, 49, 54)">{{example}}</p>
           <p style="color: rgb(45, 49, 54)">{{description}}</p>
         </div>

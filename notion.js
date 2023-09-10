@@ -19,7 +19,8 @@ if (!notion || !databaseId) {
 
 const randomFetch = async function () {
   // wait a period of time to increase the randomizer rate.
-  const randNumber = randomIntFromInterval(100, 10000);
+  // 10s -> 60k ms (1 min)
+  const randNumber = randomIntFromInterval(10 * 1000, 60 * 1000);
   delay(randNumber).then(() => {
     console.log(`Delayed ${randNumber}ms to enhance the randomizer algorithm`);
   });
@@ -32,7 +33,7 @@ const randomFetch = async function () {
         direction: "ascending",
       },
     ],
-    page_size: 50,
+    page_size: 100, // max, the bigger, the more randomized
   });
   return response;
 };
@@ -64,6 +65,9 @@ const buildEmailContent = function (response) {
   const shuffledArray = [...vocabularies];
   shuffleArray(shuffledArray);
   const randomizedVocabs = shuffledArray.slice(0, 15);
+
+  console.log("Today's vocab:");
+  console.log(randomizedVocabs);
 
   const hbTemplate = Handlebars.compile(template);
   const html = hbTemplate({ vocabularies: randomizedVocabs });

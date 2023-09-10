@@ -2,7 +2,7 @@ const { Client } = require("@notionhq/client");
 const fs = require("fs");
 const path = require("path");
 const template = fs.readFileSync(
-  path.resolve(__dirname, "template.html"),
+  path.resolve(__dirname, "template-inline.html"),
   "utf8"
 );
 const Handlebars = require("handlebars");
@@ -97,6 +97,7 @@ function shuffleArray(array) {
 function delay(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
+
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }

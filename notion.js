@@ -33,8 +33,15 @@ const randomFetch = async function () {
         direction: "ascending",
       },
     ],
+    filter: {
+      property: "Type",
+      select: {
+        equals: "Vocab",
+      },
+    },
     page_size: 100, // max, the bigger, the more randomized
   });
+
   return response;
 };
 

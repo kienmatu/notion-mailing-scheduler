@@ -19,8 +19,8 @@ if (!notion || !databaseId) {
 
 const randomFetch = async function () {
   // wait a period of time to increase the randomizer rate.
-  // 10s -> 60k ms (1 min)
-  const randNumber = randomIntFromInterval(10 * 1000, 60 * 1000);
+  // 10s -> 30k ms (0.5 min)
+  const randNumber = randomIntFromInterval(10 * 1000, 30 * 1000);
   delay(randNumber).then(() => {
     console.log(`Delayed ${randNumber}ms to enhance the randomizer algorithm`);
   });

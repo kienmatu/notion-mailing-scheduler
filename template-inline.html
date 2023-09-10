@@ -36,6 +36,8 @@
           border-radius: 0.25rem;
           padding: 1rem;
           padding-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.1rem;
         "
       >
         <div style="margin-bottom: 0.8rem">
@@ -61,23 +63,32 @@
                 background-color: rgb(59, 130, 246);
               "
             ></span>
-            <span style="font-weight: 600; color: #5488c7">
+            <span style="font-weight: 600; color: #122d4e">
               {{#if pronunciation}} {{pronunciation}} {{else}} _missing_ {{/if}}
             </span>
           </div>
         </div>
+        {{#if example}}
         <div
           style="
             margin-top: 0.1rem;
             border-top: solid rgb(158, 158, 158) 0.01em;
           "
         >
-          <p style="color: rgb(45, 49, 54)">{{description}}</p>
+          <p style="color: rgb(45, 49, 54)">{{example}}</p>
         </div>
+        {{/if}}
       </div>
       {{/each}}
     </article>
-    <div style="margin-top: 2rem; font-size: 1.3rem; font-weight: 600">
+    <div
+      style="
+        margin-top: 1.5rem;
+        margin-bottom: 2rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+      "
+    >
       Now, check the result!
     </div>
     <article style="margin: 0.5rem 1rem 0.5rem 1rem; display: block">
@@ -90,6 +101,8 @@
           border-radius: 0.25rem;
           padding: 1rem;
           padding-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          margin-top: 0.1rem;
         "
       >
         <div style="margin-bottom: 0.8rem">
@@ -115,7 +128,7 @@
                 background-color: rgb(59, 130, 246);
               "
             ></span>
-            <span style="font-weight: 600; color: #5488c7">
+            <span style="font-weight: 600; color: #122d4e">
               {{#if pronunciation}} {{pronunciation}} {{else}} _missing_ {{/if}}
             </span>
           </div>

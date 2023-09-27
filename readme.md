@@ -21,6 +21,9 @@ This project help us to schedule sending an email every week from a notion datab
    Like this:
    ![](./images/connect-database-to-integration.png)
 
+   Copy the database ID
+   ![](./images/db_id.png)
+
 4. Prepare gmail account.
 
    - Enable 2 factor authentication.

@@ -54,3 +54,5 @@ This project help us to schedule sending an email every week from a notion datab
      ![Result email](./images/email-received.png)
    - Scroll down:
      ![Result email](./images/email-received-2.png)
+
+   
